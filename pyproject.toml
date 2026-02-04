@@ -8,3 +8,7 @@ dependencies = [
     "dbt-bigquery>=1.11.0",
     "dbt-core>=1.11.2",
 ]
+[tool.uv]
+http-proxy = "http://192.168.20.10:9090"
+https-proxy = "http://192.168.20.10:9090"
+allow-insecure-host = ["pypi.org", "pypi.python.org", "files.pythonhosted.org"]
