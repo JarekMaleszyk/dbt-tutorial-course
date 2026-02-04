@@ -7,3 +7,9 @@ packages:
 
   - package: dbt-labs/codegen
     version: 0.9.0
+
+
+# packages:
+#   - local: manual_packages\dbt_utils
+#   - local: manual_packages\dbt_expectations
+#   - local: manual_packages\dbt_codegen
