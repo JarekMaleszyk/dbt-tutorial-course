@@ -2,7 +2,7 @@ lessons:
   outputs:
     dev:
       type: duckdb
-      path: dev.duckdb
+      path: 'D:\prj\dbt-tutorial-course\source_database\thelook_source.db'
       threads: 4
 
     prod:
