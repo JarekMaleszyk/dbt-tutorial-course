@@ -3,7 +3,8 @@ thelook_project: # nazwa musi zgadzać się z profile w dbt_project.yml
   outputs:
     dev:
       type: duckdb
-      path: '..\target_database\thelook_final.db' # Tutaj dbt będzie tworzyć tabele/widoki
+      path: ":memory:"
+      # path: '..\target_database\thelook_final.db' # Tutaj dbt będzie tworzyć tabele/widoki
       extensions:
         - parquet
       # Tutaj "podpinamy" Twoją bazę źródłową jako zewnętrzną bazę danych
