@@ -40,5 +40,9 @@ models:
 
     staging:
       +materialized: view
+      stg_ecommerce__events:
+        enabled: false
+      stg_ecommerce__events_microbatch:
+        enabled: false
     marts:
       +materialized: table

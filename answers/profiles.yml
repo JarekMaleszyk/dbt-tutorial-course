@@ -1,16 +1,16 @@
-thelook_project: # nazwa musi zgadzać się z profile w dbt_project.yml
+thelook_project:
   target: dev
   outputs:
     dev:
       type: duckdb
-      # path: ":memory:"
-      path: '..\target_database\thelook_final.db' # Tutaj dbt będzie tworzyć tabele/widoki
-      extensions: [] 
+      path: 'D:\prj\dbt-tutorial-course\target_database\thelook_final.db'
+      
+      # Zmiana: attachments → attach
+      attach:
+        - path: 'D:\prj\dbt-tutorial-course\source_database\thelook_source.db'
+          alias: source_db
+          read_only: true  # opcjonalnie, ale zalecane dla bazy źródłowej
+      
+      extensions: []
       settings:
         custom_extension_repository: ""
-      # extensions:
-      #   - parquet
-      # Tutaj "podpinamy" Twoją bazę źródłową jako zewnętrzną bazę danych
-      attach:
-        - path: '..\source_database\thelook_source.db'
-          alias: source_db # alias, pod którym dbt widzi te dane

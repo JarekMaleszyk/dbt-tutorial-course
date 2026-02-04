@@ -41,7 +41,8 @@ SELECT
 
 	-- In practise we'd calculate this column in the model itself, but it's
 	-- a good way to demonstrate how to use an ephemeral materialisation
-	TIMESTAMP_DIFF(od.created_at, user_data.first_order_created_at, DAY) AS days_since_first_order
+	-- TIMESTAMP_DIFF(od.created_at, user_data.first_order_created_at, DAY) AS days_since_first_order
+	date_diff('day', user_data.first_order_created_at, od.created_at) AS days_since_first_order
 
 FROM {{ ref('stg_ecommerce__orders') }} AS od
 LEFT JOIN order_item_measures AS om
