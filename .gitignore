@@ -208,6 +208,6 @@ __marimo__/
 
 /manual_packages
 /answers/manual_packages
-source_database/thelook_source.db
 target_database/thelook_final.db
+source_database/thelook_source.db
 
