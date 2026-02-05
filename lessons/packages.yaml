@@ -1,0 +1,5 @@
+packages:
+  - local: manual_packages\dbt_utils
+  - local: manual_packages\dbt_expectations
+  - local: manual_packages\dbt_codegen
+  - local: manual_packages\dbt_date
