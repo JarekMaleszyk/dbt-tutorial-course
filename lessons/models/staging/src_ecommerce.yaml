@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: thelook_ecommerce
-    database: source_db
+    # database: source_db
     schema: main
     tables:
       - name: distribution_centers
