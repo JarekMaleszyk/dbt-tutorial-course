@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: stg_ecommerce__products
+    description: "Table of products on the online store"
+    columns:
+      - name: product_id
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - unique:
+              config:
+                severity: error
+
+      - name: cost
+        description: "How much the product cost the business to purchase"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+
+      - name: retail_price
+        description: "How much the product retails for on the online store"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= cost"
+
+      - name: department
+        description: "Whether the item is Menswear or Womenswear"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - "Men"
+                  - "Women"
+                quote: true
+
+      - name: brand
+        description: "Brand of the product"

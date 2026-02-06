@@ -16,8 +16,8 @@ clean-targets:
 models:
   lessons:
     staging:
-      +materialized: view
-    intermediate:
       +materialized: table
-    marts:
-      +materialized: table
+    # intermediate:
+    #   +materialized: table
+    # marts:
+    #   +materialized: table

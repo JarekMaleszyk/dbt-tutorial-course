@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: stg_ecommerce__order_items
+    description: "Line items from orders"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_item_id
+        description: "Unique identifier for order item"
+        data_type: bigint
+        constraints:
+          - type: not_null
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+          - unique:
+              config:
+                severity: error
+
+      - name: order_id
+        description: "Foreign key to orders"
+        data_type: bigint
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ecommerce__orders')
+                field: order_id
+
+      - name: user_id
+        description: "Foreign key to users"
+        data_type: bigint
+        data_tests:
+          - not_null
+
+      - name: product_id
+        description: "Foreign key to products"
+        data_type: bigint
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ecommerce__products')
+                field: product_id
+
+      - name: item_sale_price
+        data_type: double
+        description: "How much the item sold for"
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+
+      - name: created_at
+        data_type: timestamp
+        description: "When the order item was created"
+
+      - name: delivered_at
+        data_type: timestamp
+        description: "When the order item was delivered"
+
+      - name: inventory_item_id
+        data_type: bigint
+        description: "Reference to inventory item"
+
+      - name: returned_at
+        data_type: timestamp
+        description: "When the order item was returned"
+
+      - name: shipped_at
+        data_type: timestamp
+        description: "When the order item was shipped"
+
+      - name: status
+        data_type: varchar
+        description: "Current status of the order item"
+        data_tests:
+          - not_null
