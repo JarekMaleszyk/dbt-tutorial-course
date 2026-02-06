@@ -12,11 +12,12 @@ snapshot-paths: ["snapshots"]
 
 clean-targets:      
   - "target"
-  # - "dbt_packages"
 
 models:
   lessons:
     staging:
       +materialized: view
+    intermediate:
+      +materialized: table
     marts:
       +materialized: table

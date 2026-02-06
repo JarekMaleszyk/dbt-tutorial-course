@@ -1,17 +1,17 @@
-packages:
-  - package: dbt-labs/dbt_utils
-    version: 1.0.0
-
-  - package: calogica/dbt_expectations
-    version: [">=0.8.0", "<0.9.0"]
-
-  - package: dbt-labs/codegen
-    version: 0.9.0
-
 # packages:
-#   - local: manual_packages\dbt_utils
-#   - local: manual_packages\dbt_expectations
-#   - local: manual_packages\dbt_codegen
-#   - local: manual_packages\dbt_date
+#   - package: dbt-labs/dbt_utils
+#     version: 1.0.0
+
+#   - package: calogica/dbt_expectations
+#     version: [">=0.8.0", "<0.9.0"]
+
+#   - package: dbt-labs/codegen
+#     version: 0.9.0
+
+packages:
+  - local: manual_packages\dbt_utils
+  - local: manual_packages\dbt_expectations
+  - local: manual_packages\dbt_codegen
+  - local: manual_packages\dbt_date
 
 # packages: []

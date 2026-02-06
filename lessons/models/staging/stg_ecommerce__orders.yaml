@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_ecommerce__orders
+    description: ""
+    columns:
+      - name: order_id
+        data_type: bigint
+        description: ""
+        test:
+          - unique
+
+      - name: user_id
+        data_type: bigint
+        description: ""
+
+      - name: created_at
+        data_type: timestamp
+        description: ""
+
+      - name: returned_at
+        data_type: timestamp
+        description: ""
+
+      - name: delivered_at
+        data_type: timestamp
+        description: ""
+
+      - name: shipped_at
+        data_type: timestamp
+        description: ""
+
+      - name: status
+        data_type: varchar
+        description: ""
+
+      - name: gender
+        data_type: varchar
+        description: ""
+
+      - name: num_items_ordered
+        data_type: bigint
+        description: ""

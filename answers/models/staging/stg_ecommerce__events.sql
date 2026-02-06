@@ -1,3 +1,7 @@
+{% if execute %}
+    {% do run_query(get_brand_name()) %}
+{% endif %}
+
 {{
 	config(
 		materialized='incremental',
