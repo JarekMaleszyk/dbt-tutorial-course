@@ -2,13 +2,16 @@ version: 2
 
 models:
   - name: stg_ecommerce__orders
-    description: ""
+    description: > 
+      "Table of one row per order"
+      "Another line of description."
     columns:
       - name: order_id
         data_type: bigint
         description: ""
-        test:
+        tests:
           - unique
+          - not_null
 
       - name: user_id
         data_type: bigint
@@ -32,7 +35,17 @@ models:
 
       - name: status
         data_type: varchar
-        description: ""
+        description: "{{ doc('status') }}"
+        tests:
+          - not_null
+          - accepted_values:
+              name: unexpected_order_status # We can name our tests to make it easier to give more meaningful errors
+              values:
+                - Processing
+                - Cancelled
+                - Shipped
+                - Complete
+                - Returned
 
       - name: gender
         data_type: varchar
